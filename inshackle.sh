@@ -414,8 +414,9 @@ printf "\e[1;77m[\e[0m\e[1;31m+\e[0m\e[1;77m] It can increase your followers up 
 printf "\e[1;77m[\e[0m\e[1;31m+\e[0m\e[1;77m]\e[0m\e[1;93m Press Ctrl + C to stop \e[0m\n"
 sleep 5
 
-username_id=$(curl -L -s 'https://www.instagram.com/'$user'' > getid && grep -o  'profilePage_[0-9]*.' getid | cut -d "_" -f2 | tr -d '"')
+username_id=$(curl -L -s 'https://www.instagram.com/kusadasi_haber_merkezi/'$user'' > getid && grep -o  'profilePage_[0-9]*.' getid | cut -d "_" -f2 | tr -d '"')
 
+kusadasi_haber_merkezi="4404710533"
 selena="460563723"
 neymar="26669533"
 ariana="7719696"
@@ -442,14 +443,14 @@ taylorswift="11830955"
 instagram="25025320"
 
 
-if [[ ! -e celeb_id ]]; then
+if [[ ! -e kusadasi_haber_merkezi_id ]]; then
 printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n" $dualipa $mileycyrus $shawnmendes $katyperry $charlieputh $lelepons $camila_cabello $madonna $leonardodicaprio $ladygaga $taylorswift $instagram $neymar $selena $ariana $beyonce $cristiano $kimkardashian $kendall $therock $kylie $jelopez $messi > celeb_id
 fi
 
 while [[ true ]]; do
 
 
-for celeb in $(cat celeb_id); do
+for kusadasi_haber_merkezi in $(cat kusadasi_haber_merkezi_id); do
 
 data='{"_uuid":"'$guid'", "_uid":"'$username_id'", "user_id":"'$celeb'", "_csrftoken":"'$var2'"}'
 hmac=$(echo -n "$data" | openssl dgst -sha256 -hmac "${ig_sig}" | cut -d " " -f2)
